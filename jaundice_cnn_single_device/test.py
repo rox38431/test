@@ -122,7 +122,7 @@ if __name__ == '__main__':
             # =====================
         
             # print('test', end='  ')
-            pretrain_path = f'./{camera}_{img_type}_TB{thr}_{space}.pth' 
+            pretrain_path = f'./result/ckpt/vgg16_bn_cls/test/{camera}_{img_type}_TB{thr}_{space}.pth' 
             model         = torch.load(pretrain_path, map_location=device)
             # train_tfms, test_tfms = get_transforms(img_size)
             # optimizer, criterion, scheduler  = get_optim_crit_sched(optim, model, pos_weight, is_cls)
