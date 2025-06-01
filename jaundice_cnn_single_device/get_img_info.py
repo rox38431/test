@@ -26,7 +26,7 @@ def check_subfolders_for_non_images(base_dir: Path):
 def save_filenames_and_paths(base_dir: Path, output_csv: str):
     file_entries = [
         (p.name, str(p.resolve()))
-        for p in base_dir.iterdir()
+        for p in base_dir.rglob('*')
         if p.is_file()
     ]
 
