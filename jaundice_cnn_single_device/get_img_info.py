@@ -52,7 +52,8 @@ if __name__ == "__main__":
     raw_img_dir = '/home/ngroup/TFG-Students/jojo_code/correction_test/iHealthImages'
     output_csv_path = './data/file_list.csv'
     base_dir = Path(raw_img_dir)
-    found_exts = check_subfolders_for_non_images(base_dir, output_csv_path)
+    found_exts = check_subfolders_for_non_images(base_dir)
+    save_filenames_and_paths(base_dir, output_csv_path)
 
     print("\n整個資料夾中找到的影像檔案類型：")
     for ext in sorted(found_exts):
