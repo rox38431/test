@@ -22,17 +22,6 @@ def check_subfolders_for_non_images(base_dir: Path):
                 print(f"  - {invalid}")
     return found_image_exts
 
-def check_subfolders_for_non_images(base_dir: Path):
-
-    for subfolder in base_dir.iterdir():
-        if not subfolder.is_dir():
-            continue
-        for item in subfolder.iterdir():
-            if item.is_dir() or item.suffix.lower() not in IMAGE_EXTS:
-                continue
-            else:
-                found_image_exts.add(item.suffix.lower())
-
 def save_filenames_and_paths(base_dir: Path, output_csv: str):
     file_entries = [
         (p.name, str(p.resolve()))
