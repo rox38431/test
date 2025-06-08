@@ -27,7 +27,7 @@ def save_filenames_and_paths(base_dir: Path, output_csv: str):
     file_entries = [
         (p.name, str(p.resolve()))
         for p in base_dir.rglob('*')
-        if p.is_file()
+        if p.is_file() and p.suffix.lower() in IMAGE_EXTS
     ]
 
     with open(output_csv, mode='w', newline='', encoding='utf-8') as f:
@@ -42,7 +42,11 @@ if __name__ == "__main__":
     raw_img_dir = '/home/ngroup/TFG-Students/jojo_code/correction_test/iHealthImages'
     output_csv_path = './data/file_list.csv'
     base_dir = Path(raw_img_dir)
+
+    # Found how many type of image extension.
     found_exts = check_subfolders_for_non_images(base_dir)
+    printf(f"In {raw_img_dir}, include exts: {found_exts}")
+
     save_filenames_and_paths(base_dir, output_csv_path)
 
     print("\n整個資料夾中找到的影像檔案類型：")
